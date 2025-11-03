@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Initiating Random Redirect...</h1>
+        <p>You are being randomly redirected to one of the target websites. If the redirect does not occur, please ensure JavaScript is enabled.</p>
+    </div>
+
+    <script>
+        // 1. Define the array of target websites
+        const targetWebsites = [
+            "https://docs.google.com/forms/d/e/1FAIpQLSd9TVdxVyR6tgypBrR-prpQgpIahF3B9s8Ii7BO0NQ35y6o-g/viewform",
+            "https://docs.google.com/forms/d/e/1FAIpQLSfYMuQ1skOifkCr_Hy7CLBZvfAU03993Jnxp0paP3OZmFUyiQ/viewform"
+            // You can add more URLs here if needed
+        ];
+
+        // 2. Generate a random index
+        // Math.random() gives a number between 0 (inclusive) and 1 (exclusive)
+        // Multiplying by array length gives a number between 0 and N-1.999...
+        // Math.floor() converts this to a whole number index (0 or 1 in this case)
+        const randomIndex = Math.floor(Math.random() * targetWebsites.length);
+
+        // 3. Select the random URL
+        const randomURL = targetWebsites[randomIndex];
+
+        // 4. Perform the redirect
+        // window.location.replace() is used to load the new URL,
+        // which prevents the back button from returning to this page.
+        if (randomURL) {
+            console.log("Redirecting to: " + randomURL);
+            window.location.replace(randomURL);
+        } else {
+            // Fallback in case of an unexpected error
+            console.error("Error: Could not determine a target URL.");
+        }
+    </script>
+</body>
+</html>
